@@ -1,0 +1,29 @@
+<%= simple_form_for(@student, html: { class: 'form-horizontal' }) do |f| %>
+       
+    <div class="row">
+      <div class="small-6 columns">
+        <h3><%= controller.action_name.capitalize %> Student</h3>
+        <%= f.input :family_id, collection: Family.active.alphabetical, prompt: "Select family..." %>
+        <%= f.input :first_name%>
+        <%= f.input :last_name %>
+        <%= f.input :date_of_birth, label: "Date_of_birth", as: :string, input_html: {:class => "avg datepicker"} %>
+        <%= f.input :rating %>
+        <%= f.input :active %>
+      </div>
+      <div class="small-1 columns">&nbsp;</div>
+      <div class="small-5 columns">
+        <% if controller.action_name=="edit" && @student.active %>
+        <h3>Student Camp(s)</h3>
+        <%= f.input :camp_ids, label: "", collection: Camp.active.chronological.map{|c| c.name+" "+c.start_date.strftime('%m/%d/%y') }, as: :check_boxes %>
+      <% end %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, class: 'button radius' %>
+      <%= link_to 'Back to list of students', students_path, :class => 'button secondary radius' %>
+    </div>
+
+<% end %>
+
+

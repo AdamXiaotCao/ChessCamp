@@ -16,8 +16,9 @@ class Family < ActiveRecord::Base
   validates_format_of :email, with: /\A[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, message: "is not a valid format"
 
   # callbacks
-  before_destroy :is_never_destroyable
   before_save :reformat_phone
+  before_destroy :is_never_destroyable
+  
 
   def make_inactive
     self.active = false

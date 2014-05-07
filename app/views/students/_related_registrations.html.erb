@@ -1,0 +1,16 @@
+<% unless @camps.empty? %>
+  <!-- <h3>&nbsp;</h3> -->
+  <div class="panel clearfix">
+    <h5>Registered Camp(s)</h5>
+    <ul class="side-nav">
+      <% @camps.each do |camp| %>
+        <li><%= link_to camp.name,camp_path(camp)%> <%= "#{camp.start_date.strftime('%B %e, %Y')}" %></li>
+      <% end %>
+    </ul>
+  </div>
+
+<% else %>
+  <div class="panel clearfix">
+    <h5>No Registered Camp</h5>
+  </div>
+<% end %>

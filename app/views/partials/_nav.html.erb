@@ -34,6 +34,34 @@
               <li><%= link_to "Add an Instructor", new_instructor_path %></li>
             </ul>
           </li>
+          <!-- options for login -->
+         
+          <% if !logged_in? %>
+            <li>
+            <%= link_to "Click here to login", login_path%>
+            </li>
+          <% end %>
+
+                   <!-- ADMIN ONLY OPTIONS -->
+          <% if logged_in? && current_user.role == "admin" %>
+            <li><%= link_to "Family", families_path %></li>
+            <li><%= link_to "Users", users_path %></li>
+            <li><%= link_to "Students", students_path %></li>
+            <li><%= link_to "Locations", locations_path %></li>
+          <% end %>
+        </ul>
+
+        <% if logged_in? %>
+          <ul class="right">
+            <li class="has-dropdown">
+            <%= link_to "Welcome, #{current_user.instructor.first_name}", user_path(current_user) %>
+            <ul class="dropdown">
+              <li><%= link_to "Edit settings", edit_user_path(current_user) %></li>
+              <li><%= link_to "Logout", logout_path %></li>
+            </ul>
+          </li>
+        <% end %>
+
         </ul>
       </section>
     </nav>

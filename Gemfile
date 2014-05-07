@@ -26,6 +26,7 @@ gem 'jquery-rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
+gem 'gmaps4rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -52,6 +53,11 @@ gem 'carrierwave'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '3.1.5'
+gem 'nested_form','0.3.2'
+gem 'font-awesome-sass-rails', '3.0.2.2'
+gem 'jquery-ui-rails', '4.1.1'
+gem 'cancancan', '1.7.0'
+
 
 # Additional gems that are very useful in Rails development
 group :development do
