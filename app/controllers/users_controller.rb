@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = @instructor.user
     # @user_assignments = @user.assignments.active.by_project
     # @created_tasks = Task.for_creator(@user.id).by_name
     # @completed_tasks = Task.for_completer(@user.id).by_name
@@ -15,6 +16,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user.instructor_id = params[:instructor] unless params[:instructor_id].nil?
   end
 
   def edit
