@@ -52,3 +52,5 @@ $(function() {
   });
 });
 
+
+$(function(){ $(document).foundation(); });

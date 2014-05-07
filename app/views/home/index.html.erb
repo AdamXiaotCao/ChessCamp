@@ -1,6 +1,6 @@
-<% if logged_in? && @current_user.role?('instructor')%>
+<% if logged_in? && current_user.role?('instructor')%>
 	<%= render :partial => 'instructor_home' %>
-<% elsif logged_in? ** @current_user.role?('admin') %>
+<% elsif logged_in? && current_user.role?('admin') %>
 
 <% else %>
 <%= render :partial => 'general_home' %>

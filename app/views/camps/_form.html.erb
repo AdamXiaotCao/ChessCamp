@@ -4,6 +4,7 @@
       <div class="small-6 columns">
         <h3><%= controller.action_name.capitalize %> Camp</h3>
         <%= f.input :curriculum_id, collection: Curriculum.active.alphabetical, prompt: "Select curriculum..." %>
+        <%= f.input :location_id, collection: Location.active.alphabetical, prompt: "Select location..." %>
         <%= f.input :cost %>
         <%= f.input :max_students %>
         <%= f.input :start_date, label: "Start_date", as: :string, input_html: {:class => "avg datepicker"} %>

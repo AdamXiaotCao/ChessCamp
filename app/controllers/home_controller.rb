@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def home
     
-    	@upcoming_camps = Camp.upcoming.active.chronological.last(5).to_a
+    	@upcoming_camps = Camp.upcoming.active.chronological.limit(5).to_a
 
     	# if @current_user.role('Instructor')
     		

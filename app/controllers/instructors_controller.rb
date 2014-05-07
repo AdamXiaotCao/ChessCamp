@@ -17,11 +17,13 @@ class InstructorsController < ApplicationController
 
   def new
     @instructor = Instructor.new
+    @user= User.new
   end
 
   def edit
     # reformating the phone so it has dashes when displayed for editing (personal taste)
     @instructor.phone = number_to_phone(@instructor.phone)
+    @user=@instructor.user
   end
 
   def create
