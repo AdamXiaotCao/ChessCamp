@@ -12,14 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-
 //= require jquery.ui.all
 //= require jquery_nested_form
 //= require foundation
 //= require_tree .
-//= require underscore
-//= require gmaps/google
 
+$(function(){ $(document).foundation(); });
 
 // Sticky footer js
 // Thanks to Charles Smith for this -- http://foundation.zurb.com/forum/posts/629-sticky-footer
@@ -51,6 +49,3 @@ $(function() {
     format: 'mm/dd/YYYY'
   });
 });
-
-
-$(function(){ $(document).foundation(); });
