@@ -50,6 +50,7 @@ class InstructorsController < ApplicationController
       render action: 'edit'
     end
   end
+  
 
   def destroy
     @instructor.destroy
