@@ -38,7 +38,7 @@ gem 'will_paginate'
 
 # Use a gem for handling date validation
 gem 'validates_timeliness'
-
+gem 'chronic', '0.10.2'
 # Use simple_form to clean up form views
 gem 'simple_form'
 

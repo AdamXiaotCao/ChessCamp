@@ -1,28 +1,25 @@
 <h2>Welcome Chess Parents!</h2>
 
-
-
-
 <div class="row">
-	<div class="small-8 columns">
-		<p><%= image_tag 'AlexPlaying10.jpg', class: "left", width: "150" %> The A &amp; M 
-		  Chess Camps are the finest chess camps in the United States (<em>we concede 
-		  Russia can do better, but not much better</em>) and guaranteed to 
-		  <strong>transform your son or daughter into a tiger at the chess board</strong>.  
-		  The links below will tell you more about our camps, curriculums and 
-		  instructors and in the future will actually allow you to register your son 
-		  or daughter for those camps. [<%= link_to "O Happy Day!", "https://www.youtube.com/watch?v=a37bBm8pXSk" %>]
-		</p>
-	</div>
+	<div class="small-7 columns">
+
+<p><%= image_tag 'index.jpeg', class: "left" %> Welcome to Alex & Mark Chess Camp webpage
+all of our instructors have exceptionally high ratings. You can get a lot out from joining our camp. We have navigation bar at the top and you can take a look about the details of our camp.
+</p>
+
+</div>
+
+
+
 <!-- 	<div class="small-1 columns">
 		&nbsp;
 	</div> -->
-	<div class="small-4 columns">
+	<div class="small-5 columns">
 		<div class="panel clearfix">
-			<% if !@upcoming_camps.empty? %>
+			<% if !@some_upcoming_camps.empty? %>
 			<h4>Some Upcoming Camps:</h4>
-			 <% @upcoming_camps.each do |camp| %>
-				<li><%= link_to "#{camp.start_date.strftime('%B %e, %Y')}", camp_path(camp) %></li>
+			 <% @some_upcoming_camps.each do |camp| %>
+				<li><%= "#{camp.name} " %><%= link_to "#{camp.start_date.strftime('%B %e, %Y')}", camp_path(camp) %></li>
 			<%	end %>
 			<% else %> 
 			<p> We currently do not have any upcoming camps avalible</p>

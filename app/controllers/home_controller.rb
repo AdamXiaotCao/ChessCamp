@@ -1,30 +1,23 @@
 class HomeController < ApplicationController
-  def home
+  def index
     
-    	@some_upcoming_camps = Camp.upcoming.active.chronological.to_a
+    	@some_upcoming_camps = Camp.upcoming.active.chronological.limit(5).to_a
 
-    	# if @current_user.role('Instructor')
-    		
-    	# elsif (@current_user.role('Administrator'))
-    	# 	# given camp, list all payments recieved
-    	# 	# list all payments for a particular family for particular year
-    	# 	# list camp for a givnen year and the total amount of payments recieved 
-    	# end
-
-
-      # get my projects
-      # @projects = current_user.projects.alphabetical.to_a
-      # project_ids = @projects.map(&:id)
-      
-      # # get my incomplete tasks
-      # @incomplete_tasks = Task.by_priority.incomplete.map{|task| task if project_ids.include?(task.project_id)}
-      
-      # # get my completed tasks
-      # @completed_tasks = Task.by_name.completed.map {|task| task if project_ids.include?(task.project_id) }
-   if logged_in? && current_user.role?('instructor')
-      @instructor=current_user.instructor
-      @instructor_upcoming_camps = @instructor.camps.upcoming.chronological
+   if logged_in? && current_user.role=="instructor"
+      Instructor.all.to_a.each do |i| 
+        if (i.id == current_user.instructor_id)
+          @instructor=i
+        end
+       end 
+       @upcoming_camps = @instructor.camps.upcoming.chronological if !@instructor.nil?
+       @past_camps = @instructor.camps.past.chronological if !@instructor.nil?
+       @user = @instructor.user if !@instructor.nil?
    end
+
+
+   if logged_in? && current_user.role =="admin"
+   end
+
   end
 
   def about
