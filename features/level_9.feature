@@ -13,7 +13,6 @@ Feature: View registrations
     When I go to the camp1 details page
     Then I should see "Name"
     And I should see "Rating"
-    Then show me the page
     And I should see "Registrations (7)"
     And I should see "Martin, Alex"
     And I should see "Merritt, Dean"
@@ -24,7 +23,6 @@ Feature: View registrations
   Scenario: View registrations from students details
     When I go to Gracie's page
     And I should see "Nimzo-Indian Defense"
-    Then show me the page
     And I should see "06/02/14"
     And I should see "Endgame Principles"
     And I should see "07/21/14"

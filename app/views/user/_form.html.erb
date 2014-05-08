@@ -7,8 +7,9 @@
     <%= f.input :username %>
     <%= f.input :password%>
     <%= f.input :password_confirmation %>
-    <%= f.input :role %>
-    <%= f.input :active %>
+    <%= f.label :Role %><br />
+    <%= f.select :role, User::ROLES, :prompt => "Select ..." %>
+
     <% else %> 
 
     <%= f.input :password%>

@@ -13,6 +13,8 @@
 
 <strong>Biography</strong><br />
   <%= @instructor.bio.nil? ? "N/A" : @instructor.bio %><br /><br />
-
+<% if logged_in? && current_user.role == "admin" %>
+ <%= render :partial => "user/user_details" %>
+<% end %>
 
 <%= link_to "Edit this instructor", edit_instructor_path(@instructor), class: "button tiny radius" %>&nbsp;&nbsp;

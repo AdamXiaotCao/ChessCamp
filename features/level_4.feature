@@ -10,7 +10,7 @@ Feature: Manage camps
   # READ METHODS
   Scenario: View all camps (paginated)
     When I go to the camps page
-    # Then show me the page
+   
     Then I should see "Camps"
     And I should see "Name"
     And I should see "Start"

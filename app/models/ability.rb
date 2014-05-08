@@ -22,7 +22,8 @@ include CanCan::Ability
       end
 
       can :update, Instructor do |instructor|  
-        instructor.id = user.instructor_id
+        self_instructor= user.instructor
+        self_instructor==instructor
       end
 
       # they can read their camp

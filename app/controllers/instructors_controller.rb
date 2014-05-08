@@ -16,21 +16,22 @@ class InstructorsController < ApplicationController
   end
 
   def new
+    authorize! :new, @instructor
     @instructor = Instructor.new
-    if (@instructor.user.nil?)
-      @instructor.user = User.new
-    else
-    
-      @user = @instructor.user.build
-    
-    end
+
+    @instructor.build_user
+
 
   end
 
   def edit
+    authorize! :edit, @instructor
     # reformating the phone so it has dashes when displayed for editing (personal taste)
     @instructor.phone = number_to_phone(@instructor.phone)
-    @user=@instructor.user
+    if @instructor.user.nil?
+      @instructor.build_user
+    end
+
   end
 
   def create
@@ -63,4 +64,6 @@ class InstructorsController < ApplicationController
     def instructor_params
       params.require(:instructor).permit(:first_name, :last_name, :bio, :email, :phone, :active, user_attributes: [:username, :password, :password_confirmation,:role,:active])
     end
+
 end
+
