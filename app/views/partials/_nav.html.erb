@@ -10,29 +10,49 @@
           <!-- options for curriculums -->
           <li class="has-dropdown">
             <%= link_to "Curriculums", curriculums_path %>
+            <%  if logged_in? && current_user.role=="admin"%>
             <ul class="dropdown">
               <li><%= link_to "List Curriculums", curriculums_path %></li>
               <li><%= link_to "Add a Curriculum", new_curriculum_path %></li>
             </ul>
+            <% else %> 
+            <ul class="dropdown">
+              <li><%= link_to "List Curriculums", curriculums_path %></li>
+           
+            </ul>
+            <%end%>
           </li>
 
           <!-- options for camps -->
           <li class="has-dropdown">
             <%= link_to "Camps", camps_path %>
+            <%  if logged_in? && current_user.role=="admin"%>
             <ul class="dropdown">
               <li><%= link_to "List Camps", camps_path %></li>
               <li><%= link_to "Add a Camp", new_camp_path %></li>
             </ul>
+            <% else %> 
+            <ul class="dropdown">
+                <li><%= link_to "List Camps", camps_path %></li>
+           
+            </ul>
+            <%end%>
           </li>
 
           <!-- options for instructors -->
           <li class="has-dropdown">
             <!-- <a href="#">Instructors</a> -->
             <%= link_to "Instructors", instructors_path %>
+             <%  if logged_in? && current_user.role == "admin" %>
             <ul class="dropdown">
               <li><%= link_to "List Instructors", instructors_path %></li>
               <li><%= link_to "Add an Instructor", new_instructor_path %></li>
             </ul>
+             <% else %> 
+            <ul class="dropdown">
+                <li><%= link_to "List Instructors", instructors_path %></li>           
+            </ul>
+            <%end%>
           </li>
           <!-- options for login -->
          
@@ -47,6 +67,7 @@
             <li><%= link_to "Family", families_path %></li>
             <li><%= link_to "Students", students_path %></li>
             <li><%= link_to "Locations", locations_path %></li>
+            <li><%= link_to "User", users_path %></li>
           <% end %>
         </ul>
 

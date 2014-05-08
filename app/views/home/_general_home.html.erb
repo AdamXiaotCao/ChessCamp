@@ -19,7 +19,7 @@
 	</div> -->
 	<div class="small-4 columns">
 		<div class="panel clearfix">
-			<% if !@upcoming_camps.nil? %>
+			<% if !@upcoming_camps.empty? %>
 			<h4>Some Upcoming Camps:</h4>
 			 <% @upcoming_camps.each do |camp| %>
 				<li><%= link_to "#{camp.start_date.strftime('%B %e, %Y')}", camp_path(camp) %></li>

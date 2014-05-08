@@ -15,6 +15,9 @@
     <%= f.input :password_confirmation %>
     <% end %> 
 
-
+    <div class="form-actions">
+      <%= f.submit nil, class: 'button radius' %>
+      <%= link_to 'Back to list of users', users_path, :class => 'button secondary radius' %>
+    </div>
 
 <% end %>

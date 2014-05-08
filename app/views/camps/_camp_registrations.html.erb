@@ -1,0 +1,22 @@
+<% unless @camp_students.empty? %>
+  <!-- <h3>&nbsp;</h3> -->
+  <div class="panel clearfix">
+    <h5><%="Registrations" " (#{@camp_students.length})" %></h5>
+    <ul class="side-nav">
+      <% @camp_students.each do |student| %>
+        <li><%= link_to student.name, student_path(student) %>
+          <% if student.rating==0 %>
+          <%= "Unrated" %>
+          <% else %>
+          <%= "Rating: #{student.rating}"%>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+<% else %>
+  <div class="panel clearfix">
+    <h5>No Instructors</h5>
+  </div>
+<% end %>

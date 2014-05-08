@@ -35,7 +35,6 @@ Feature: Manage student
     And I should see "Gracie Daigle"
     And I should see "Age"
     And I should see "16"
-    Then show me the page
     And I should see "04/04/1998"
     And I should see "1235"
     And I should see "Yes"
@@ -69,7 +68,6 @@ Feature: Manage student
     And I fill in "student_date_of_birth" with "05/01/2000"
     And I press "Create Student"
     Then I should see "Subra Suresh was added to the system"
-    Then show me the page
     And I should see "Student Details"
     And I should see "2000"
   

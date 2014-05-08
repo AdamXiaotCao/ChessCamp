@@ -11,6 +11,7 @@ class CampsController < ApplicationController
 
   def show
     @instructors = @camp.instructors.alphabetical.to_a
+    @camp_students = @camp.students.alphabetical.to_a
   end
 
   def new

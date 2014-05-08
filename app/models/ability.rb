@@ -11,13 +11,6 @@ include CanCan::Ability
       can :manage, :all
       
     elsif user.role? :instructor
-      # can see a list of all users
-      can :index, User
-      
-      # they can read their own profile
-      can :show, User do |u|  
-        u.id == user.id
-      end
       # they can update their own profile
       can :update, User do |u|  
         u.id == user.id
@@ -45,7 +38,7 @@ include CanCan::Ability
       end
 
     else
-      # guests can only read domains covered (plus home pages)
+      # guests can only read camp(plus home pages)
       can :read, Camp
     end
   end

@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def home
     
-    	@upcoming_camps = Camp.upcoming.active.chronological.limit(5).to_a
+    	@some_upcoming_camps = Camp.upcoming.active.chronological.to_a
 
     	# if @current_user.role('Instructor')
     		
@@ -21,7 +21,9 @@ class HomeController < ApplicationController
       
       # # get my completed tasks
       # @completed_tasks = Task.by_name.completed.map {|task| task if project_ids.include?(task.project_id) }
-   if logged_in?
+   if logged_in? && current_user.role?('instructor')
+      @instructor=current_user.instructor
+      @instructor_upcoming_camps = @instructor.camps.upcoming.chronological
    end
   end
 

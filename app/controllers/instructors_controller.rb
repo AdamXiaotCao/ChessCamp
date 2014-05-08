@@ -17,7 +17,14 @@ class InstructorsController < ApplicationController
 
   def new
     @instructor = Instructor.new
-    @user = @instructor.user.build
+    if (@instructor.user.nil?)
+      @instructor.user = User.new
+    else
+    
+      @user = @instructor.user.build
+    
+    end
+
   end
 
   def edit
@@ -37,7 +44,7 @@ class InstructorsController < ApplicationController
 
   def update
     if @instructor.update(instructor_params)
-      redirect_to @instructor, notice: "#{@instructor.proper_name} was revised in the system."
+      redirect_to @instructor, notice: "#{@instructor.proper_name} was revised in the system"
     else
       render action: 'edit'
     end

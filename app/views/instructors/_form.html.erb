@@ -11,9 +11,13 @@
   <h3> User for this Instructor</h3>
   <div id="instructor_user">
     <%= f.simple_fields_for :user do |user_form| %>
-      <%= render :partial => "user/form", :locals => { :f => user_form } %>
+      <%= render :partial => "partials/user_fields", :locals => { :f => user_form } %>
     <% end %> 
-
+    <% if @instructor.user.nil?%>
+    <p>
+      <br /><%= f.link_to_add("Add User", :user, :class => 'button tiny') %>
+    </p>
+    <% end %>
   </div> 
 
     <div class="form-actions">
